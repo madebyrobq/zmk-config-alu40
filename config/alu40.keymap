@@ -10,6 +10,55 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+    behaviors {
+        comma_exclamation: comma_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_EXCLAMATION";
+            bindings = <&kp COMMA>, <&kp EXCL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        period_question: period_question {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PERIOD_QUESTION";
+            bindings = <&kp PERIOD>, <&kp QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        slash_backslash: slash_backslash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH_BACKSLASH";
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        layer_tap_rules: layer_tap_rules {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_RULES";
+            #binding-cells = <2>;
+            bindings = <&lt>, <&kp>;
+
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
+
+        mod_tap_rules: mod_tap_rules {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_RULES";
+            bindings = <&mt>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -24,32 +73,35 @@
 &kp TAB     &kp Q     &kp W     &kp E  &kp R      &kp T      &kp Y        &kp U        &kp I      &kp O     &kp P     &kp BSPC
 &kp ESCAPE  &kp A     &kp S     &kp D  &kp F      &kp G      &kp H        &kp J        &kp K      &kp L     &kp SEMI  &kp ENTER
 &kp LSHFT   &kp Z     &kp X     &kp C  &kp V      &kp B      &kp N        &kp M        &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
-&kp LCTRL   &kp LALT  &kp LCMD  &mo 1  &kp SPACE  &kp SPACE  &lt 1 SPACE  &lt 1 SPACE  &mo 1      &kp LEFT  &kp DOWN  &kp RIGHT
+&kp LCTRL   &kp LALT  &kp LCMD  &mo 1  &kp SPACE  &kp SPACE  &lt 1 SPACE  &lt 1 SPACE  &mo 2      &kp LEFT  &kp DOWN  &kp RIGHT
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        raise {
+        raise_left {
             bindings = <
-&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS  &kp RS(PLUS)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &trans
-&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &kp SLASH  &kp ASTERISK  &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &trans
-&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE   &kp AMPS      &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
-&trans     &trans        &trans        &mo 2         &trans        &trans     &trans        &trans        &mo 2                 &trans                 &trans   &trans
+&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS    &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp BACKSPACE
+&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &kp SLASH    &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &trans
+&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE     &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
+&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE  &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_BRI_DEC C_BRI_INC>;
         };
 
-        control {
+        raise_right {
             bindings = <
-&sys_reset       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4     &trans  &trans  &trans  &trans  &trans  &bt BT_CLR
-&rgb_ug RGB_ON   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &trans  &trans
-&rgb_ug RGB_OFF  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR  &trans  &trans  &trans  &trans  &trans  &trans
-&bootloader      &trans           &trans           &trans           &trans           &trans           &trans  &trans  &none   &trans  &trans  &none
+&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS    &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp DEL
+&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &kp SLASH    &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &kp RG(ENTER)
+&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE     &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
+&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE  &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
             >;
+        };
 
-            sensor-bindings = <&inc_dec_kp LG(MINUS) LG(PLUS)>;
+        system {
+            bindings = <
+&none            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4     &none  &none  &none  &sys_reset  &bootloader  &bt BT_CLR
+&rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF  &none  &none  &none  &none       &none        &none
+&none            &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR  &none  &none  &none  &none       &none        &none
+&none            &none            &none            &none            &none            &none            &none  &none  &none  &none       &none        &none
+            >;
         };
     };
 };
