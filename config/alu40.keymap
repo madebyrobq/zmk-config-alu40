@@ -70,28 +70,28 @@
             // | PLAY  | LCTL | LALT | LGUI | LOWR |     SPACE    |  RAIS | LARW | UARW | DARW  |  RARW |
 
             bindings = <
-&kp TAB     &kp Q     &kp W     &kp E  &kp R      &kp T      &kp Y        &kp U        &kp I      &kp O     &kp P     &kp BSPC
-&kp ESCAPE  &kp A     &kp S     &kp D  &kp F      &kp G      &kp H        &kp J        &kp K      &kp L     &kp SEMI  &kp ENTER
-&kp LSHFT   &kp Z     &kp X     &kp C  &kp V      &kp B      &kp N        &kp M        &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
-&kp LCTRL   &kp LALT  &kp LCMD  &mo 1  &kp SPACE  &kp SPACE  &lt 1 SPACE  &lt 1 SPACE  &mo 2      &kp LEFT  &kp DOWN  &kp RIGHT
+&kp TAB     &kp Q     &kp W     &kp E  &kp R      &kp T      &kp Y        &kp U        &kp I               &kp O             &kp P     &kp BSPC
+&kp ESCAPE  &kp A     &kp S     &kp D  &kp F      &kp G      &kp H        &kp J        &kp K               &kp L             &kp SEMI  &kp ENTER
+&kp LSHFT   &kp Z     &kp X     &kp C  &kp V      &kp B      &kp N        &kp M        &comma_exclamation  &period_question  &kp UP    &kp RSHFT
+&kp LCTRL   &kp LALT  &kp LCMD  &mo 1  &kp SPACE  &kp SPACE  &lt 1 SPACE  &lt 1 SPACE  &mo 2               &kp LEFT          &kp DOWN  &kp RIGHT
             >;
         };
 
         raise_left {
             bindings = <
-&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS    &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp BACKSPACE
-&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &kp SLASH    &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &trans
-&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE     &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
-&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE  &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
+&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS         &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp BACKSPACE
+&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &slash_backslash  &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &trans
+&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE          &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
+&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE       &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
             >;
         };
 
         raise_right {
             bindings = <
-&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS    &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp DEL
-&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &kp SLASH    &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &kp RG(ENTER)
-&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE     &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
-&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE  &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
+&kp GRAVE  &kp N1        &kp N2        &kp N3        &kp N4        &kp MINUS         &kp RS(EQUAL)  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT  &kp DEL
+&trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &slash_backslash  &kp ASTERISK   &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans   &kp RG(ENTER)
+&trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PERIOD    &kp PIPE          &kp AMPS       &kp QUESTION  &kp LESS_THAN         &kp GREATER_THAN       &trans   &trans
+&trans     &trans        &mt LCMD N0   &lt 3 PERIOD  &lt 3 SPACE   &lt 3 SPACE       &lt 3 SPACE    &lt 3 SPACE   &mo 3                 &trans                 &trans   &trans
             >;
         };
 
